@@ -27,7 +27,42 @@
 		713D353A2535911C000415ED /* orientation.c in Sources */ = {isa = PBXBuildFile; fileRef = 713D35132535911C000415ED /* orientation.c */; };
 		713D353B2535911C000415ED /* jqsort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35142535911C000415ED /* jqsort.cpp */; };
 		713D353C2535911C000415ED /* tmesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35152535911C000415ED /* tmesh.cpp */; };
+		713D355F25359AB7000415ED /* MeshFix.mm in Sources */ = {isa = PBXBuildFile; fileRef = 713D355E25359AB7000415ED /* MeshFix.mm */; };
+		713D356025359AB7000415ED /* MeshFix.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 713D355D25359AB7000415ED /* MeshFix.h */; };
+		713D357025359B5B000415ED /* detectIntersections.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35022535911C000415ED /* detectIntersections.cpp */; };
+		713D357125359B5B000415ED /* marchIntersections.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35012535911C000415ED /* marchIntersections.cpp */; };
+		713D357225359B5B000415ED /* checkAndRepair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D34FF2535911C000415ED /* checkAndRepair.cpp */; };
+		713D357325359B5B000415ED /* holeFilling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35032535911C000415ED /* holeFilling.cpp */; };
+		713D357425359B5B000415ED /* subdivision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35002535911C000415ED /* subdivision.cpp */; };
+		713D357725359B63000415ED /* io.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35052535911C000415ED /* io.cpp */; };
+		713D357825359B63000415ED /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35062535911C000415ED /* triangle.cpp */; };
+		713D357925359B63000415ED /* tin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35072535911C000415ED /* tin.cpp */; };
+		713D357A25359B63000415ED /* vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35082535911C000415ED /* vertex.cpp */; };
+		713D357B25359B63000415ED /* edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35092535911C000415ED /* edge.cpp */; };
+		713D358025359BF2000415ED /* heap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D350E2535911C000415ED /* heap.cpp */; };
+		713D358125359BF2000415ED /* orientation.c in Sources */ = {isa = PBXBuildFile; fileRef = 713D35132535911C000415ED /* orientation.c */; };
+		713D358225359BF2000415ED /* tmesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35152535911C000415ED /* tmesh.cpp */; };
+		713D358325359BF2000415ED /* list.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35112535911C000415ED /* list.cpp */; };
+		713D358425359BF2000415ED /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D350D2535911C000415ED /* graph.cpp */; };
+		713D358525359BF2000415ED /* coordinates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D350F2535911C000415ED /* coordinates.cpp */; };
+		713D358625359BF2000415ED /* point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35102535911C000415ED /* point.cpp */; };
+		713D358725359BF2000415ED /* matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35122535911C000415ED /* matrix.cpp */; };
+		713D358825359BF2000415ED /* jqsort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35142535911C000415ED /* jqsort.cpp */; };
+		71C539452535E95A009CC516 /* LibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C539442535E95A009CC516 /* LibTests.m */; };
+		71C539472535E95A009CC516 /* libMeshFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 713D355B25359AB7000415ED /* libMeshFix.a */; };
+		71C539522535EA20009CC516 /* sample_1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 71C539512535EA20009CC516 /* sample_1.obj */; };
+		71C5395B2535EB92009CC516 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C5395A2535EB92009CC516 /* libc++.tbd */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71C539482535E95A009CC516 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 713D34E8253590E5000415ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 713D355A25359AB7000415ED;
+			remoteInfo = MeshFix_iOS_static;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		713D34EE253590E5000415ED /* CopyFiles */ = {
@@ -38,6 +73,16 @@
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		713D355925359AB7000415ED /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				713D356025359AB7000415ED /* MeshFix.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -79,6 +124,14 @@
 		713D35262535911C000415ED /* heap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = heap.h; sourceTree = "<group>"; };
 		713D35272535911C000415ED /* basics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basics.h; sourceTree = "<group>"; };
 		713D35282535911C000415ED /* jqsort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jqsort.h; sourceTree = "<group>"; };
+		713D355B25359AB7000415ED /* libMeshFix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMeshFix.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		713D355D25359AB7000415ED /* MeshFix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeshFix.h; sourceTree = "<group>"; };
+		713D355E25359AB7000415ED /* MeshFix.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MeshFix.mm; sourceTree = "<group>"; };
+		71C539422535E95A009CC516 /* LibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71C539442535E95A009CC516 /* LibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibTests.m; sourceTree = "<group>"; };
+		71C539462535E95A009CC516 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71C539512535EA20009CC516 /* sample_1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample_1.obj; sourceTree = "<group>"; };
+		71C5395A2535EB92009CC516 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +142,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		713D355825359AB7000415ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71C5393F2535E95A009CC516 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71C5395B2535EB92009CC516 /* libc++.tbd in Frameworks */,
+				71C539472535E95A009CC516 /* libMeshFix.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -96,7 +165,10 @@
 			isa = PBXGroup;
 			children = (
 				713D34F2253590E5000415ED /* MeshFix */,
+				713D355C25359AB7000415ED /* Additions */,
+				71C539432535E95A009CC516 /* LibTests */,
 				713D34F1253590E5000415ED /* Products */,
+				71C539592535EB92009CC516 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				713D34F0253590E5000415ED /* MeshFix */,
+				713D355B25359AB7000415ED /* libMeshFix.a */,
+				71C539422535E95A009CC516 /* LibTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +291,41 @@
 			path = Kernel;
 			sourceTree = "<group>";
 		};
+		713D355C25359AB7000415ED /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				713D355D25359AB7000415ED /* MeshFix.h */,
+				713D355E25359AB7000415ED /* MeshFix.mm */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		71C539432535E95A009CC516 /* LibTests */ = {
+			isa = PBXGroup;
+			children = (
+				71C539502535E9FC009CC516 /* Sample */,
+				71C539442535E95A009CC516 /* LibTests.m */,
+				71C539462535E95A009CC516 /* Info.plist */,
+			);
+			path = LibTests;
+			sourceTree = "<group>";
+		};
+		71C539502535E9FC009CC516 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				71C539512535EA20009CC516 /* sample_1.obj */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		71C539592535EB92009CC516 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71C5395A2535EB92009CC516 /* libc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -237,6 +346,41 @@
 			productReference = 713D34F0253590E5000415ED /* MeshFix */;
 			productType = "com.apple.product-type.tool";
 		};
+		713D355A25359AB7000415ED /* MeshFix_iOS_static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 713D356325359AB7000415ED /* Build configuration list for PBXNativeTarget "MeshFix_iOS_static" */;
+			buildPhases = (
+				713D355725359AB7000415ED /* Sources */,
+				713D355825359AB7000415ED /* Frameworks */,
+				713D355925359AB7000415ED /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeshFix_iOS_static;
+			productName = MeshFix_iOS_static;
+			productReference = 713D355B25359AB7000415ED /* libMeshFix.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		71C539412535E95A009CC516 /* LibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71C5394C2535E95A009CC516 /* Build configuration list for PBXNativeTarget "LibTests" */;
+			buildPhases = (
+				71C5393E2535E95A009CC516 /* Sources */,
+				71C5393F2535E95A009CC516 /* Frameworks */,
+				71C539402535E95A009CC516 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71C539492535E95A009CC516 /* PBXTargetDependency */,
+			);
+			name = LibTests;
+			productName = LibTests;
+			productReference = 71C539422535E95A009CC516 /* LibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -246,6 +390,12 @@
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					713D34EF253590E5000415ED = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					713D355A25359AB7000415ED = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					71C539412535E95A009CC516 = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
 				};
@@ -264,9 +414,22 @@
 			projectRoot = "";
 			targets = (
 				713D34EF253590E5000415ED /* MeshFix */,
+				713D355A25359AB7000415ED /* MeshFix_iOS_static */,
+				71C539412535E95A009CC516 /* LibTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71C539402535E95A009CC516 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71C539522535EA20009CC516 /* sample_1.obj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		713D34EC253590E5000415ED /* Sources */ = {
@@ -296,7 +459,50 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		713D355725359AB7000415ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				713D357925359B63000415ED /* tin.cpp in Sources */,
+				713D358225359BF2000415ED /* tmesh.cpp in Sources */,
+				713D357325359B5B000415ED /* holeFilling.cpp in Sources */,
+				713D357425359B5B000415ED /* subdivision.cpp in Sources */,
+				713D357B25359B63000415ED /* edge.cpp in Sources */,
+				713D357A25359B63000415ED /* vertex.cpp in Sources */,
+				713D355F25359AB7000415ED /* MeshFix.mm in Sources */,
+				713D357825359B63000415ED /* triangle.cpp in Sources */,
+				713D358325359BF2000415ED /* list.cpp in Sources */,
+				713D357125359B5B000415ED /* marchIntersections.cpp in Sources */,
+				713D357025359B5B000415ED /* detectIntersections.cpp in Sources */,
+				713D357725359B63000415ED /* io.cpp in Sources */,
+				713D358725359BF2000415ED /* matrix.cpp in Sources */,
+				713D358525359BF2000415ED /* coordinates.cpp in Sources */,
+				713D358825359BF2000415ED /* jqsort.cpp in Sources */,
+				713D358425359BF2000415ED /* graph.cpp in Sources */,
+				713D358625359BF2000415ED /* point.cpp in Sources */,
+				713D357225359B5B000415ED /* checkAndRepair.cpp in Sources */,
+				713D358025359BF2000415ED /* heap.cpp in Sources */,
+				713D358125359BF2000415ED /* orientation.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71C5393E2535E95A009CC516 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71C539452535E95A009CC516 /* LibTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71C539492535E95A009CC516 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 713D355A25359AB7000415ED /* MeshFix_iOS_static */;
+			targetProxy = 71C539482535E95A009CC516 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		713D34F5253590E5000415ED /* Debug */ = {
@@ -432,6 +638,82 @@
 			};
 			name = Release;
 		};
+		713D356125359AB7000415ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64A284T85F;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = MeshFix;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		713D356225359AB7000415ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64A284T85F;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = MeshFix;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		71C5394A2535E95A009CC516 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64A284T85F;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LibTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.alphacoders.LibTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		71C5394B2535E95A009CC516 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64A284T85F;
+				INFOPLIST_FILE = LibTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.alphacoders.LibTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -449,6 +731,24 @@
 			buildConfigurations = (
 				713D34F8253590E5000415ED /* Debug */,
 				713D34F9253590E5000415ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		713D356325359AB7000415ED /* Build configuration list for PBXNativeTarget "MeshFix_iOS_static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				713D356125359AB7000415ED /* Debug */,
+				713D356225359AB7000415ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71C5394C2535E95A009CC516 /* Build configuration list for PBXNativeTarget "LibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71C5394A2535E95A009CC516 /* Debug */,
+				71C5394B2535E95A009CC516 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
