@@ -188,7 +188,8 @@
 				713D35162535911C000415ED /* include */,
 				713D34FD2535911C000415ED /* src */,
 			);
-			path = MeshFix;
+			name = MeshFix;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		713D34FD2535911C000415ED /* src */ = {
@@ -199,8 +200,7 @@
 				713D350A2535911C000415ED /* MeshFix */,
 				713D350C2535911C000415ED /* Kernel */,
 			);
-			name = src;
-			path = ../../src;
+			path = src;
 			sourceTree = "<group>";
 		};
 		713D34FE2535911C000415ED /* Algorithms */ = {
@@ -257,8 +257,7 @@
 				713D35172535911C000415ED /* TMesh */,
 				713D351F2535911C000415ED /* Kernel */,
 			);
-			name = include;
-			path = ../../include;
+			path = include;
 			sourceTree = "<group>";
 		};
 		713D35172535911C000415ED /* TMesh */ = {
