@@ -70,6 +70,7 @@ Vertex::Vertex(const Point& p) : Point(p.x, p.y, p.z)
 
 Vertex::~Vertex()
 {
+    delete this->color;
 }
 
 

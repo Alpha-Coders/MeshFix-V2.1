@@ -87,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7137EF632548714F005312C9 /* color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = color.h; sourceTree = "<group>"; };
 		713D34F0253590E5000415ED /* MeshFix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MeshFix; sourceTree = BUILT_PRODUCTS_DIR; };
 		713D34FF2535911C000415ED /* checkAndRepair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = checkAndRepair.cpp; sourceTree = "<group>"; };
 		713D35002535911C000415ED /* subdivision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = subdivision.cpp; sourceTree = "<group>"; };
@@ -270,6 +271,7 @@
 				713D351C2535911C000415ED /* tmesh.h */,
 				713D351D2535911C000415ED /* triangle.h */,
 				713D351E2535911C000415ED /* tin.h */,
+				7137EF632548714F005312C9 /* color.h */,
 			);
 			path = TMesh;
 			sourceTree = "<group>";
@@ -646,7 +648,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = MeshFix;
 				SDKROOT = iphoneos;
@@ -660,7 +662,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 64A284T85F;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = MeshFix;
 				SDKROOT = iphoneos;

@@ -9,5 +9,5 @@
 
 @class MDLMesh;
 @interface MeshFix: NSObject
-+ (MDLMesh * _Nonnull)fixMesh:(MDLMesh * _Nonnull)mesh addEdgeSubMesh:(BOOL)addEdgeSubMesh;
++ (MDLMesh * _Nonnull)fixMesh:(MDLMesh * _Nonnull)mesh;
 @end

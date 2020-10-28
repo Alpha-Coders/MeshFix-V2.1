@@ -18,7 +18,7 @@ using namespace T_MESH;
     TMesh::quiet = true;
 }
 
-+ (MDLMesh * _Nonnull)fixMesh:(MDLMesh * _Nonnull)mesh addEdgeSubMesh:(BOOL)addEdgeSubMesh {
++ (MDLMesh * _Nonnull)fixMesh:(MDLMesh * _Nonnull)mesh {
     
     NSUInteger submeshIndex = [[mesh submeshes] indexOfObjectPassingTest:^BOOL(MDLSubmesh * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         return obj.geometryType == MDLGeometryTypeTriangles;
@@ -28,28 +28,27 @@ using namespace T_MESH;
     MDLSubmesh *submesh = mesh.submeshes[submeshIndex];
     MDLMeshBufferMap * meshFaceIndices = [[submesh indexBufferAsIndexType:MDLIndexBitDepthUInt32] map];
     MDLVertexAttributeData *positionAttributes = [mesh vertexAttributeDataForAttributeNamed:MDLVertexAttributePosition asFormat:MDLVertexFormatFloat3];
+    MDLVertexAttributeData *colorAttributes = [mesh vertexAttributeDataForAttributeNamed:MDLVertexAttributeColor asFormat:MDLVertexFormatFloat3];
     
     Basic_TMesh tin;
     
-    NSUInteger maxVertexIndex = 0;
-    NSUInteger faceCount = submesh.indexCount/3;
+    ExtVertex **var = (ExtVertex **)malloc(sizeof(ExtVertex *)*mesh.vertexCount);
 
-    for (NSUInteger faceIndex = 0; faceIndex < faceCount; faceIndex++) {
-        UInt32 * indexBuffer = ((UInt32 *)meshFaceIndices.bytes) + faceIndex*3;
-        maxVertexIndex = MAX(maxVertexIndex, indexBuffer[0]);
-        maxVertexIndex = MAX(maxVertexIndex, indexBuffer[1]);
-        maxVertexIndex = MAX(maxVertexIndex, indexBuffer[2]);
-    }
-    NSUInteger verticesCount = maxVertexIndex + 1;
-    ExtVertex **var = (ExtVertex **)malloc(sizeof(ExtVertex *)*verticesCount);
-
-    for (NSUInteger vertexIndex = 0; vertexIndex < verticesCount; vertexIndex++) {
-        Float32 * vertexBuffer = (Float32 *)((UInt8 *)positionAttributes.dataStart + vertexIndex * positionAttributes.stride);
-        Vertex *v = tin.newVertex(vertexBuffer[0], vertexBuffer[1], vertexBuffer[2]);
+    for (NSUInteger vertexIndex = 0; vertexIndex < mesh.vertexCount; vertexIndex++) {
+        Float32 * positionBuffer = (Float32 *)((UInt8 *)positionAttributes.dataStart + vertexIndex * positionAttributes.stride);
+        Vertex *v = tin.newVertex(positionBuffer[0], positionBuffer[1], positionBuffer[2]);
+        if (colorAttributes != nil) {
+            Float32 * colorBuffer = (Float32 *)((UInt8 *)colorAttributes.dataStart + vertexIndex * colorAttributes.stride);
+            v->color = new Color(colorBuffer[0], colorBuffer[1], colorBuffer[2]);
+        } else {
+            v->color = NULL;
+        }
         tin.V.appendTail(v);
         var[vertexIndex] = new ExtVertex(v);
     }
-    for (NSUInteger faceIndex = 0; faceIndex < faceCount; faceIndex++) {
+    
+    NSUInteger trianglesCount = submesh.indexCount/3;
+    for (NSUInteger faceIndex = 0; faceIndex < trianglesCount; faceIndex++) {
         UInt32 * indexBuffer = ((UInt32 *)meshFaceIndices.bytes) + faceIndex*3;
         UInt32 index0 = indexBuffer[0];
         UInt32 index1 = indexBuffer[1];
@@ -57,14 +56,14 @@ using namespace T_MESH;
         tin.CreateIndexedTriangle(var, index0, index1, index2);
     }
     
-    for (NSUInteger vertexIndex = 0; vertexIndex < verticesCount; vertexIndex++) {
+    for (NSUInteger vertexIndex = 0; vertexIndex < mesh.vertexCount; vertexIndex++) {
         delete(var[vertexIndex]);
     }
     free(var);
     
+    tin.rebuildConnectivity();
     tin.fixConnectivity();
     
-    // Keep only the largest component (i.e. with most triangles)
     tin.removeSmallestComponents();
     
     // Fill holes
@@ -73,28 +72,39 @@ using namespace T_MESH;
     }
     tin.meshclean();
     
-    size_t resultVerticesByteSize = sizeof(Float32)*tin.V.numels() * 3;
-    NSData * resultVertices = [[NSData alloc] initWithBytesNoCopy:malloc(resultVerticesByteSize) length:resultVerticesByteSize freeWhenDone:YES];
-
     Node *node = NULL;
+    size_t resultPositionByteSize = sizeof(Float32)*tin.V.numels() * 3;
+    NSData * resultPosition = [[NSData alloc] initWithBytesNoCopy:malloc(resultPositionByteSize) length:resultPositionByteSize freeWhenDone:YES];
+    NSData * resultColors = nil;
+    if (colorAttributes != nil) {
+        size_t resultColorsByteSize = sizeof(Float32)*tin.V.numels() * 3;
+        resultColors = [[NSData alloc] initWithBytesNoCopy:malloc(resultColorsByteSize) length:resultColorsByteSize freeWhenDone:YES];
+    }
+    node = NULL;
     NSUInteger index = 0;
     FOREACHNODE(tin.V, node) {
-        ((Float32 *)resultVertices.bytes)[index] = ((Vertex *)node->data)->x;
-        ((Float32 *)resultVertices.bytes)[index + 1] = ((Vertex *)node->data)->y;
-        ((Float32 *)resultVertices.bytes)[index + 2] = ((Vertex *)node->data)->z;
-        index += 3;
+        Vertex *vertex = (Vertex *)node->data;
+        ((Float32 *)resultPosition.bytes)[index*3] = vertex->x;
+        ((Float32 *)resultPosition.bytes)[index*3 + 1] = vertex->y;
+        ((Float32 *)resultPosition.bytes)[index*3 + 2] = vertex->z;
+        
+        if (resultColors != nil) {
+            Color *color = vertex->color;
+            ((Float32 *)resultColors.bytes)[index*3] = color ? color->r : 0;
+            ((Float32 *)resultColors.bytes)[index*3 + 1] = color ? color->g : 0;
+            ((Float32 *)resultColors.bytes)[index*3 + 2] = color ? color->b : 0;
+        }
+        //to find indices faster, we put the index of the vertex inside the x dimension
+        vertex->x = index;
+        index += 1;
     }
     MDLMesh * result = [[MDLMesh alloc] initWithBufferAllocator:nil];
     result.vertexCount = tin.V.numels();
-    [result addAttributeWithName:@"positions" format:MDLVertexFormatFloat3 type:MDLVertexAttributePosition data:resultVertices stride:sizeof(Float32)*3];
-
-    //to find indices faster, we put the index of the vertex inside the x dimension
-    index = 0;
-    FOREACHNODE(tin.V, node) {
-        ((Vertex *)node->data)->x = index;
-        index += 1;
+    [result addAttributeWithName:@"positions" format:MDLVertexFormatFloat3 type:MDLVertexAttributePosition data:resultPosition stride:sizeof(Float32)*3];
+    if (resultColors != nil) {
+        [result addAttributeWithName:@"colors" format:MDLVertexFormatFloat3 type:MDLVertexAttributeColor data:resultColors stride:sizeof(Float32)*3];
     }
-    
+
     size_t resultTriangleIndicesByteSize = sizeof(UInt32)*tin.T.numels() * 3;
     NSData * resultTrianglesIndices = [[NSData alloc] initWithBytesNoCopy:malloc(resultTriangleIndicesByteSize)
                                                                    length:resultTriangleIndicesByteSize freeWhenDone:YES];
@@ -102,39 +112,18 @@ using namespace T_MESH;
     index = 0;
     FOREACHNODE(tin.T, node) {
         Triangle *triangle = (Triangle *)node->data;
-        ((UInt32 *)resultTrianglesIndices.bytes)[index] = (UInt32)triangle->v1()->x;
-        ((UInt32 *)resultTrianglesIndices.bytes)[index + 1] = (UInt32)triangle->v2()->x;
-        ((UInt32 *)resultTrianglesIndices.bytes)[index + 2] = (UInt32)triangle->v3()->x;
-        index += 3;
+        ((UInt32 *)resultTrianglesIndices.bytes)[index*3] = (UInt32)triangle->v1()->x;
+        ((UInt32 *)resultTrianglesIndices.bytes)[index*3 + 1] = (UInt32)triangle->v2()->x;
+        ((UInt32 *)resultTrianglesIndices.bytes)[index*3 + 2] = (UInt32)triangle->v3()->x;
+        index += 1;
     }
     
     MDLMeshBufferData *resultTriangleIndicesBufferData = [[MDLMeshBufferData alloc] initWithType:MDLMeshBufferTypeIndex data:resultTrianglesIndices];
     MDLSubmesh *triangleSubMesh = [[MDLSubmesh alloc] initWithIndexBuffer:resultTriangleIndicesBufferData indexCount:tin.T.numels() * 3
                                                                 indexType:MDLIndexBitDepthUint32 geometryType:MDLGeometryTypeTriangles
                                                                  material:nil];
-
-    
     [result.submeshes addObject:triangleSubMesh];
     [result addNormalsWithAttributeNamed:@"normal" creaseThreshold:0.5];
-
-    if (addEdgeSubMesh) {
-        size_t resultEdgesIndicesByteSize = sizeof(UInt32)*tin.E.numels() * 2;
-        NSData * resultEdgesIndices = [[NSData alloc] initWithBytesNoCopy:malloc(resultEdgesIndicesByteSize)
-                                                                   length:resultEdgesIndicesByteSize freeWhenDone:YES];
-        node = NULL;
-        index = 0;
-        FOREACHNODE(tin.E, node) {
-            Edge *edge = (Edge *)node->data;
-            ((UInt32 *)resultEdgesIndices.bytes)[index] = (UInt32)edge->v1->x;
-            ((UInt32 *)resultEdgesIndices.bytes)[index + 1] = (UInt32)edge->v2->x;
-            index += 3;
-        }
-        MDLMeshBufferData *resultEdgeIndicesBufferData = [[MDLMeshBufferData alloc] initWithType:MDLMeshBufferTypeIndex data:resultEdgesIndices];
-        MDLSubmesh *edgeSubMesh = [[MDLSubmesh alloc] initWithIndexBuffer:resultEdgeIndicesBufferData indexCount:tin.E.numels() * 2
-                                                                indexType:MDLIndexBitDepthUint32 geometryType:MDLGeometryTypeLines
-                                                                 material:nil];
-        [result.submeshes addObject:edgeSubMesh];
-    }
 
     return result;
 }

@@ -34,6 +34,7 @@
 #include "basics.h"
 #include "list.h"
 #include "point.h"
+#include "color.h"
 
 namespace T_MESH
 {
@@ -53,7 +54,7 @@ class Vertex : public Point
  public :
  class Edge *e0;			//!< One of the incident edges
  unsigned char mask;			//!< bit-mask for marking purposes
-
+ Color *color = NULL;
  //! Creates a new vertex with coordinates (0,0,0).
  Vertex();
 
