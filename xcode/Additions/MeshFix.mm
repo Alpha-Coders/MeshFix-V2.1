@@ -19,6 +19,7 @@ using namespace T_MESH;
 }
 
 + (MDLMesh * _Nonnull)fixMesh:(MDLMesh * _Nonnull)mesh {
+    NSProgress *progress = [NSProgress progressWithTotalUnitCount:10];
     
     NSUInteger submeshIndex = [[mesh submeshes] indexOfObjectPassingTest:^BOOL(MDLSubmesh * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         return obj.geometryType == MDLGeometryTypeTriangles;
@@ -29,6 +30,7 @@ using namespace T_MESH;
     MDLMeshBufferMap * meshFaceIndices = [[submesh indexBufferAsIndexType:MDLIndexBitDepthUInt32] map];
     MDLVertexAttributeData *positionAttributes = [mesh vertexAttributeDataForAttributeNamed:MDLVertexAttributePosition asFormat:MDLVertexFormatFloat3];
     MDLVertexAttributeData *colorAttributes = [mesh vertexAttributeDataForAttributeNamed:MDLVertexAttributeColor asFormat:MDLVertexFormatFloat3];
+    progress.completedUnitCount = 1;
     
     Basic_TMesh tin;
     
@@ -46,7 +48,8 @@ using namespace T_MESH;
         tin.V.appendTail(v);
         var[vertexIndex] = new ExtVertex(v);
     }
-    
+    progress.completedUnitCount = 2;
+
     NSUInteger trianglesCount = submesh.indexCount/3;
     for (NSUInteger faceIndex = 0; faceIndex < trianglesCount; faceIndex++) {
         UInt32 * indexBuffer = ((UInt32 *)meshFaceIndices.bytes) + faceIndex*3;
@@ -60,17 +63,28 @@ using namespace T_MESH;
         delete(var[vertexIndex]);
     }
     free(var);
-    
+    progress.completedUnitCount = 3;
+
     tin.rebuildConnectivity();
+    
+    progress.completedUnitCount = 4;
+
     tin.fixConnectivity();
     
+    progress.completedUnitCount = 5;
+
     tin.removeSmallestComponents();
     
+    progress.completedUnitCount = 6;
     // Fill holes
     if (tin.boundaries()) {
         tin.fillSmallBoundaries(0, true);
     }
+    progress.completedUnitCount = 7;
+
     tin.meshclean();
+    
+    progress.completedUnitCount = 8;
     
     Node *node = NULL;
     size_t resultPositionByteSize = sizeof(Float32)*tin.V.numels() * 3;
@@ -98,6 +112,8 @@ using namespace T_MESH;
         vertex->x = index;
         index += 1;
     }
+    progress.completedUnitCount = 9;
+
     MDLMesh * result = [[MDLMesh alloc] initWithBufferAllocator:nil];
     result.vertexCount = tin.V.numels();
     [result addAttributeWithName:@"positions" format:MDLVertexFormatFloat3 type:MDLVertexAttributePosition data:resultPosition stride:sizeof(Float32)*3];
@@ -125,6 +141,8 @@ using namespace T_MESH;
     [result.submeshes addObject:triangleSubMesh];
     [result addNormalsWithAttributeNamed:@"normal" creaseThreshold:0.5];
 
+    progress.completedUnitCount = 10;
+    
     return result;
 }
 @end
