@@ -40,9 +40,12 @@ namespace T_MESH
 		Node *n;
 		Vertex *v;
 		Triangle *t;
-		Mp.x = -DBL_MAX, mp.x = DBL_MAX;
-		Mp.y = -DBL_MAX, mp.y = DBL_MAX;
-		Mp.z = -DBL_MAX, mp.z = DBL_MAX;
+		Mp.x = -DBL_MAX;
+		mp.x = DBL_MAX;
+		Mp.y = -DBL_MAX;
+		mp.y = DBL_MAX;
+		Mp.z = -DBL_MAX;
+		mp.z = DBL_MAX;
 		FOREACHVVVERTEX((&(tin->V)), v, n) if (useAll || IS_BIT(v,5))
 		{
 			if (v->x < mp.x) mp.x = v->x;
@@ -206,7 +209,7 @@ int Basic_TMesh::selectIntersectingTriangles(UINT16 tris_per_cell, bool justprop
 void jitterIncrease(char *f)
 {
 	bool isnegative = (f[0] == '-');
-	int l = strlen(f);
+	int l = (int)strlen(f);
 
 	if (isnegative)
 	{
@@ -226,7 +229,7 @@ void jitterIncrease(char *f)
 void jitterDecrease(char *f)
 {
 	bool isnegative = (f[0] == '-');
-	int l = strlen(f);
+	int l = (int)strlen(f);
 
 	if (isnegative)
 	{

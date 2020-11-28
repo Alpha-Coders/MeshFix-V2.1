@@ -12,7 +12,6 @@
 		713D352B2535911C000415ED /* marchIntersections.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35012535911C000415ED /* marchIntersections.cpp */; };
 		713D352C2535911C000415ED /* detectIntersections.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35022535911C000415ED /* detectIntersections.cpp */; };
 		713D352D2535911C000415ED /* holeFilling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35032535911C000415ED /* holeFilling.cpp */; };
-		713D352E2535911C000415ED /* io.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35052535911C000415ED /* io.cpp */; };
 		713D352F2535911C000415ED /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35062535911C000415ED /* triangle.cpp */; };
 		713D35302535911C000415ED /* tin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35072535911C000415ED /* tin.cpp */; };
 		713D35312535911C000415ED /* vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35082535911C000415ED /* vertex.cpp */; };
@@ -34,7 +33,6 @@
 		713D357225359B5B000415ED /* checkAndRepair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D34FF2535911C000415ED /* checkAndRepair.cpp */; };
 		713D357325359B5B000415ED /* holeFilling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35032535911C000415ED /* holeFilling.cpp */; };
 		713D357425359B5B000415ED /* subdivision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35002535911C000415ED /* subdivision.cpp */; };
-		713D357725359B63000415ED /* io.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35052535911C000415ED /* io.cpp */; };
 		713D357825359B63000415ED /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35062535911C000415ED /* triangle.cpp */; };
 		713D357925359B63000415ED /* tin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35072535911C000415ED /* tin.cpp */; };
 		713D357A25359B63000415ED /* vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35082535911C000415ED /* vertex.cpp */; };
@@ -48,6 +46,9 @@
 		713D358625359BF2000415ED /* point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35102535911C000415ED /* point.cpp */; };
 		713D358725359BF2000415ED /* matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35122535911C000415ED /* matrix.cpp */; };
 		713D358825359BF2000415ED /* jqsort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35142535911C000415ED /* jqsort.cpp */; };
+		7142251025715F54004AAF0B /* io.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 713D35052535911C000415ED /* io.cpp */; };
+		7142251B2571606C004AAF0B /* algUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7142251A2571606C004AAF0B /* algUtils.cpp */; };
+		7142251C2571606C004AAF0B /* algUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7142251A2571606C004AAF0B /* algUtils.cpp */; };
 		71C539452535E95A009CC516 /* LibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C539442535E95A009CC516 /* LibTests.m */; };
 		71C539472535E95A009CC516 /* libMeshFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 713D355B25359AB7000415ED /* libMeshFix.a */; };
 		71C539522535EA20009CC516 /* sample_1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 71C539512535EA20009CC516 /* sample_1.obj */; };
@@ -89,26 +90,26 @@
 /* Begin PBXFileReference section */
 		7137EF632548714F005312C9 /* color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = color.h; sourceTree = "<group>"; };
 		713D34F0253590E5000415ED /* MeshFix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MeshFix; sourceTree = BUILT_PRODUCTS_DIR; };
-		713D34FF2535911C000415ED /* checkAndRepair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = checkAndRepair.cpp; sourceTree = "<group>"; };
-		713D35002535911C000415ED /* subdivision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = subdivision.cpp; sourceTree = "<group>"; };
-		713D35012535911C000415ED /* marchIntersections.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = marchIntersections.cpp; sourceTree = "<group>"; };
-		713D35022535911C000415ED /* detectIntersections.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = detectIntersections.cpp; sourceTree = "<group>"; };
-		713D35032535911C000415ED /* holeFilling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = holeFilling.cpp; sourceTree = "<group>"; };
+		713D34FF2535911C000415ED /* checkAndRepair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.cpp.cpp; path = checkAndRepair.cpp; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35002535911C000415ED /* subdivision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.cpp.cpp; path = subdivision.cpp; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35012535911C000415ED /* marchIntersections.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.cpp.cpp; path = marchIntersections.cpp; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35022535911C000415ED /* detectIntersections.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.cpp.cpp; path = detectIntersections.cpp; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35032535911C000415ED /* holeFilling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.cpp.cpp; path = holeFilling.cpp; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
 		713D35052535911C000415ED /* io.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = io.cpp; sourceTree = "<group>"; };
 		713D35062535911C000415ED /* triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle.cpp; sourceTree = "<group>"; };
-		713D35072535911C000415ED /* tin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tin.cpp; sourceTree = "<group>"; };
+		713D35072535911C000415ED /* tin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.cpp.cpp; path = tin.cpp; sourceTree = "<group>"; tabWidth = 1; usesTabs = 0; };
 		713D35082535911C000415ED /* vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vertex.cpp; sourceTree = "<group>"; };
 		713D35092535911C000415ED /* edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = edge.cpp; sourceTree = "<group>"; };
 		713D350B2535911C000415ED /* meshfix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = meshfix.cpp; sourceTree = "<group>"; };
-		713D350D2535911C000415ED /* graph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = graph.cpp; sourceTree = "<group>"; };
+		713D350D2535911C000415ED /* graph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.cpp.cpp; path = graph.cpp; sourceTree = "<group>"; };
 		713D350E2535911C000415ED /* heap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = heap.cpp; sourceTree = "<group>"; };
 		713D350F2535911C000415ED /* coordinates.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coordinates.cpp; sourceTree = "<group>"; };
-		713D35102535911C000415ED /* point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = point.cpp; sourceTree = "<group>"; };
-		713D35112535911C000415ED /* list.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = list.cpp; sourceTree = "<group>"; };
+		713D35102535911C000415ED /* point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.cpp.cpp; path = point.cpp; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35112535911C000415ED /* list.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.cpp.cpp; path = list.cpp; sourceTree = "<group>"; tabWidth = 4; };
 		713D35122535911C000415ED /* matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix.cpp; sourceTree = "<group>"; };
 		713D35132535911C000415ED /* orientation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = orientation.c; sourceTree = "<group>"; };
 		713D35142535911C000415ED /* jqsort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jqsort.cpp; sourceTree = "<group>"; };
-		713D35152535911C000415ED /* tmesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmesh.cpp; sourceTree = "<group>"; };
+		713D35152535911C000415ED /* tmesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.cpp.cpp; path = tmesh.cpp; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
 		713D35182535911C000415ED /* vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vertex.h; sourceTree = "<group>"; };
 		713D35192535911C000415ED /* marchIntersections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marchIntersections.h; sourceTree = "<group>"; };
 		713D351A2535911C000415ED /* edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edge.h; sourceTree = "<group>"; };
@@ -116,18 +117,19 @@
 		713D351C2535911C000415ED /* tmesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tmesh.h; sourceTree = "<group>"; };
 		713D351D2535911C000415ED /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle.h; sourceTree = "<group>"; };
 		713D351E2535911C000415ED /* tin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tin.h; sourceTree = "<group>"; };
-		713D35202535911C000415ED /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
-		713D35212535911C000415ED /* coordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coordinates.h; sourceTree = "<group>"; };
-		713D35222535911C000415ED /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
-		713D35232535911C000415ED /* tmesh_kernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tmesh_kernel.h; sourceTree = "<group>"; };
-		713D35242535911C000415ED /* graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graph.h; sourceTree = "<group>"; };
-		713D35252535911C000415ED /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
-		713D35262535911C000415ED /* heap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = heap.h; sourceTree = "<group>"; };
-		713D35272535911C000415ED /* basics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basics.h; sourceTree = "<group>"; };
-		713D35282535911C000415ED /* jqsort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jqsort.h; sourceTree = "<group>"; };
+		713D35202535911C000415ED /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35212535911C000415ED /* coordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.c.h; path = coordinates.h; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35222535911C000415ED /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35232535911C000415ED /* tmesh_kernel.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.c.h; path = tmesh_kernel.h; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35242535911C000415ED /* graph.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.c.h; path = graph.h; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35252535911C000415ED /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35262535911C000415ED /* heap.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.c.h; path = heap.h; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35272535911C000415ED /* basics.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.c.h; path = basics.h; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
+		713D35282535911C000415ED /* jqsort.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 1; lastKnownFileType = sourcecode.c.h; path = jqsort.h; sourceTree = "<group>"; tabWidth = 1; usesTabs = 1; };
 		713D355B25359AB7000415ED /* libMeshFix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMeshFix.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		713D355D25359AB7000415ED /* MeshFix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeshFix.h; sourceTree = "<group>"; };
 		713D355E25359AB7000415ED /* MeshFix.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MeshFix.mm; sourceTree = "<group>"; };
+		7142251A2571606C004AAF0B /* algUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = algUtils.cpp; sourceTree = "<group>"; };
 		71C539422535E95A009CC516 /* LibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71C539442535E95A009CC516 /* LibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibTests.m; sourceTree = "<group>"; };
 		71C539462535E95A009CC516 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				713D35012535911C000415ED /* marchIntersections.cpp */,
 				713D35022535911C000415ED /* detectIntersections.cpp */,
 				713D35032535911C000415ED /* holeFilling.cpp */,
+				7142251A2571606C004AAF0B /* algUtils.cpp */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -388,7 +391,7 @@
 		713D34E8253590E5000415ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					713D34EF253590E5000415ED = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -441,7 +444,6 @@
 				713D353B2535911C000415ED /* jqsort.cpp in Sources */,
 				713D352D2535911C000415ED /* holeFilling.cpp in Sources */,
 				713D35332535911C000415ED /* meshfix.cpp in Sources */,
-				713D352E2535911C000415ED /* io.cpp in Sources */,
 				713D352F2535911C000415ED /* triangle.cpp in Sources */,
 				713D35382535911C000415ED /* list.cpp in Sources */,
 				713D35372535911C000415ED /* point.cpp in Sources */,
@@ -453,9 +455,11 @@
 				713D35352535911C000415ED /* heap.cpp in Sources */,
 				713D35292535911C000415ED /* checkAndRepair.cpp in Sources */,
 				713D352B2535911C000415ED /* marchIntersections.cpp in Sources */,
+				7142251025715F54004AAF0B /* io.cpp in Sources */,
 				713D352A2535911C000415ED /* subdivision.cpp in Sources */,
 				713D35322535911C000415ED /* edge.cpp in Sources */,
 				713D353A2535911C000415ED /* orientation.c in Sources */,
+				7142251B2571606C004AAF0B /* algUtils.cpp in Sources */,
 				713D352C2535911C000415ED /* detectIntersections.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +470,7 @@
 			files = (
 				713D357925359B63000415ED /* tin.cpp in Sources */,
 				713D358225359BF2000415ED /* tmesh.cpp in Sources */,
+				7142251C2571606C004AAF0B /* algUtils.cpp in Sources */,
 				713D357325359B5B000415ED /* holeFilling.cpp in Sources */,
 				713D357425359B5B000415ED /* subdivision.cpp in Sources */,
 				713D357B25359B63000415ED /* edge.cpp in Sources */,
@@ -475,7 +480,6 @@
 				713D358325359BF2000415ED /* list.cpp in Sources */,
 				713D357125359B5B000415ED /* marchIntersections.cpp in Sources */,
 				713D357025359B5B000415ED /* detectIntersections.cpp in Sources */,
-				713D357725359B63000415ED /* io.cpp in Sources */,
 				713D358725359BF2000415ED /* matrix.cpp in Sources */,
 				713D358525359BF2000415ED /* coordinates.cpp in Sources */,
 				713D358825359BF2000415ED /* jqsort.cpp in Sources */,
@@ -622,9 +626,16 @@
 		713D34F8253590E5000415ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 64A284T85F;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					IS64BITPLATFORM,
+					IS_EXEC_BIN,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -632,9 +643,14 @@
 		713D34F9253590E5000415ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 64A284T85F;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					IS64BITPLATFORM,
+					IS_EXEC_BIN,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -682,7 +698,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = LibTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -701,7 +717,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 64A284T85F;
 				INFOPLIST_FILE = LibTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

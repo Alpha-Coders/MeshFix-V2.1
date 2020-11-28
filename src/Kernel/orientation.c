@@ -595,7 +595,7 @@ double _adaptive3dorientation(double *pa, double *pb, double *pc, double *pd, do
     wlength = _seze(abtlen, abt, cdztail, w);
     finlength = _fesze(finlength, finnow, wlength, w,
                                             finother);
-    finswap = finnow; finnow = finother; finother = finswap;
+    finnow = finother;
   }
 
   return finnow[finlength - 1];

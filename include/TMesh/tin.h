@@ -148,6 +148,7 @@ class Basic_TMesh
 		//! The calling function is responsible of verifying that the mesh is
 		//! empty before calling this method.
 
+#ifdef IS_EXEC_BIN
 		int load(const char *filename, const bool update = 1);
 		int loadIV(const char *);		//!< Loads IV
 		int loadVRML1(const char *);		//!< Loads VRML 1.0
@@ -158,7 +159,7 @@ class Basic_TMesh
 		int loadVRML2(const char *);		//!< Loads VRML 2.0
 		int loadOBJ(const char *);		//!< Loads OBJ
 		int loadSTL(const char *);		//!< Loads STL
-
+#endif
 		int cutAndStitch();	//!< Convert to manifold
 		Triangle * CreateIndexedTriangle(ExtVertex **, int, int, int);							
 		TMESH_VIRTUAL Triangle * CreateTriangleFromVertices(ExtVertex *, ExtVertex *, ExtVertex *);	

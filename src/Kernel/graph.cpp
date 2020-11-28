@@ -212,7 +212,7 @@ bool Graph::isConnected()
   if (p->mask==0) is_connected=false;
   p->mask = nmask[i];
  }
-
+ delete[] nmask;
  return is_connected;
 }
 

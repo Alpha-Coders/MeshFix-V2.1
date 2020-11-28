@@ -192,8 +192,8 @@ bool Point::pointInInnerTriangle(const Point *p, const Point *v1, const Point *v
 		if (s1 != s2) return false;
 
 		o1 = orient2D(p->x, p->y, v3->x, v3->y, v1->x, v1->y);
-		o2 = oo2,
-			s1 = (o1>0) ? (1) : ((o1<0) ? (-1) : (0)); s2 = (o2>0) ? (1) : ((o2<0) ? (-1) : (0));
+		o2 = oo2;
+		s1 = (o1>0) ? (1) : ((o1<0) ? (-1) : (0)); s2 = (o2>0) ? (1) : ((o2<0) ? (-1) : (0));
 		if (s1 != s2) return false;
 
 		o1 = orient2D(p->y, p->z, v3->y, v3->z, v1->y, v1->z);

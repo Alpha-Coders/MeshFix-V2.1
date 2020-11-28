@@ -267,7 +267,7 @@ class Point
  //!< Angle between this vector and 'v' in radians.
  double getAngle(const Point& v) const;
 
- //! Angle defined by <a, *this, b> in radians.
+ //! Angle defined by < a, *this, b > in radians.
  double getAngle(const Point& a, const Point& b) const { return (a - (*this)).getAngle(b - (*this)); }
 
  //! Angle defined by <*a, *this, *b> in radians.

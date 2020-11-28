@@ -79,7 +79,7 @@ void TMesh::error(const char *msg, ...)
   display_message(fms, DISPMSG_ACTION_ERRORDIALOG);
  else
  {
-  fprintf(stderr,fms);
+  fprintf(stderr,"%s", fms);
   exit(-1);
  }
 }
@@ -119,7 +119,7 @@ void TMesh::info(const char *msg, ...)
  if (display_message != NULL)
   display_message(fms, DISPMSG_ACTION_PUTMESSAGE);
  else
-  printf(fms);
+  printf("%s", fms);
 
  va_end(ap);
 }
@@ -218,7 +218,7 @@ bool TMesh::isUsingFiltering()
 void TMesh::addMessageToLogFile(const char *msg)
 {
 	FILE *fp = fopen("tmesh.log", "a");
-	fprintf(fp, msg);
+	fprintf(fp, "%s", msg);
 	fclose(fp);
 }
 
@@ -253,7 +253,7 @@ void TMesh::printElapsedTime(bool reset)
 {
 	static clock_t beginning_time;
 	if (reset) beginning_time = clock();
-	else printf("\n\n********** PARTIAL ELAPSED: %d msecs\n\n", (clock() - beginning_time));
+	else printf("\n\n********** PARTIAL ELAPSED: %lu msecs\n\n", (clock() - beginning_time));
 }
 
 } //namespace T_MESH

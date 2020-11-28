@@ -428,11 +428,10 @@ Edge *Basic_TMesh::bridgeBoundaries(Edge *gve, Edge *gwe)
 {
 	if (gve == gwe || !gve->isOnBoundary() || !gwe->isOnBoundary()) return NULL;
 
-	Triangle *t;
 	Vertex *v = gve->commonVertex(gwe);
 	if (v != NULL)
 	{
-		t = EulerEdgeTriangle(gve, gwe);
+		EulerEdgeTriangle(gve, gwe);
 		return gve;
 	}
 
@@ -445,8 +444,8 @@ Edge *Basic_TMesh::bridgeBoundaries(Edge *gve, Edge *gwe)
 	Edge *je2 = CreateEdge(gwn, gvn);
 	Edge *je1 = CreateEdge(gv, gwn);
 
-	t = CreateTriangle(je, gwe, je1);
-	t = CreateTriangle(je1, je2, gve);
+	CreateTriangle(je, gwe, je1);
+	CreateTriangle(je1, je2, gve);
 
 	return je1;
 }
@@ -1385,9 +1384,12 @@ void Basic_TMesh::unmarkEverything()
 coord Basic_TMesh::getBoundingBox(Point& mp, Point& Mp) const
 {
  Vertex *v; Node *n;
- Mp.x = -DBL_MAX, mp.x = DBL_MAX;
- Mp.y = -DBL_MAX, mp.y = DBL_MAX;
- Mp.z = -DBL_MAX, mp.z = DBL_MAX;
+ Mp.x = -DBL_MAX;
+ mp.x = DBL_MAX;
+ Mp.y = -DBL_MAX;
+ mp.y = DBL_MAX;
+ Mp.z = -DBL_MAX;
+ mp.z = DBL_MAX;
  FOREACHVERTEX(v, n)
  {
   if (v->x < mp.x) mp.x = v->x;

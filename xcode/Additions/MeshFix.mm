@@ -34,9 +34,10 @@ using namespace T_MESH;
     
     Basic_TMesh tin;
     
-    ExtVertex **var = (ExtVertex **)malloc(sizeof(ExtVertex *)*mesh.vertexCount);
-
-    for (NSUInteger vertexIndex = 0; vertexIndex < mesh.vertexCount; vertexIndex++) {
+    NSUInteger vertexCount = mesh.vertexCount;
+    ExtVertex **var = (ExtVertex **)malloc(sizeof(ExtVertex *)*vertexCount);
+    
+    for (NSUInteger vertexIndex = 0; vertexIndex < vertexCount; vertexIndex++) {
         Float32 * positionBuffer = (Float32 *)((UInt8 *)positionAttributes.dataStart + vertexIndex * positionAttributes.stride);
         Vertex *v = tin.newVertex(positionBuffer[0], positionBuffer[1], positionBuffer[2]);
         if (colorAttributes != nil) {
@@ -59,7 +60,7 @@ using namespace T_MESH;
         tin.CreateIndexedTriangle(var, index0, index1, index2);
     }
     
-    for (NSUInteger vertexIndex = 0; vertexIndex < mesh.vertexCount; vertexIndex++) {
+    for (NSUInteger vertexIndex = 0; vertexIndex < vertexCount; vertexIndex++) {
         delete(var[vertexIndex]);
     }
     free(var);

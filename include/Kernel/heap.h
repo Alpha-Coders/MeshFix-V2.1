@@ -65,7 +65,7 @@ class abstractHeap
  //! Comparison of two heap elements
 
  //! This function must be implemented in the extended class.
- //! The return value must be <0 if a<b, >0 if a>b or 0 if a=b.
+ //! The return value must be < 0 if a < b, > 0 if a > b or 0 if a=b.
 
  virtual int compare(const void *a, const void *b) = 0;
 

@@ -20,7 +20,7 @@
     
     MDLAsset *asset = [[MDLAsset alloc] initWithURL:sampleURL];
     MDLMesh *mesh = (MDLMesh *)[asset childObjectsOfClass:[MDLMesh class]].firstObject;
-    MDLMesh *resultMesh = [MeshFix fixMesh:mesh addEdgeSubMesh:YES];
+    MDLMesh *resultMesh = [MeshFix fixMesh:mesh];
     
     MDLAsset *resultAsset = [[MDLAsset alloc] init];
     [resultAsset addObject:resultMesh];

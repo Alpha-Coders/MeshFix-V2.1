@@ -222,8 +222,8 @@ void List::freeCell(Node *n)
 
 void List::freeNode(void *d)
 {
- free(d);
  removeNode(d);
+ free(d);
 }
 
 //////////////////// Belonging check /////////////////
